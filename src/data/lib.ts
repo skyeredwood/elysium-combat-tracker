@@ -5,7 +5,7 @@ export default interface DataFile {
     actors: CombatActor[]
     weapons: Weapon[]
     conditions: Condition[]
-    sequence: { name: string, roll: number }[]
+    sequence: { id: string, name: string, roll: number }[]
 }
 
 export interface CombatActor {
