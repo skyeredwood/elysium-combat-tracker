@@ -11,3 +11,13 @@ export default interface Weapon {
 export enum WeaponType {
     Melee, Ranged, Explosive
 }
+
+export let strikeWeapon: Weapon = {
+    id: "strike",
+    name: "Strike",
+    type: WeaponType.Melee,
+    actionPointCost: 2,
+    dmg: "1d4-2",
+    requirements: "none",
+    notes: "Can choose to grapple target, or push them 5 feet back by lowering your damage by 1 (can go to 0)."
+}

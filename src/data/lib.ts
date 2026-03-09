@@ -1,5 +1,6 @@
 import type Weapon from "./weapon"
 import type Condition from "./condition"
+import { strikeWeapon } from "./weapon"
 
 export default interface DataFile {
     actors: CombatActor[]
@@ -7,6 +8,8 @@ export default interface DataFile {
     conditions: Condition[]
     sequence: { id: string, name: string, roll: number }[]
 }
+
+export const defaultData = { actors: [], weapons: [strikeWeapon], conditions: [], sequence: [] }
 
 export interface CombatActor {
     name: string

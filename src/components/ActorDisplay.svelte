@@ -11,8 +11,16 @@
     import IconAP from "virtual:icons/tabler/brand-react";
     import ConditionDisplayTag from "./condition/ConditionDisplayTag.svelte";
     import ConditionTag from "./condition/ConditionTag.svelte";
+    import { WeaponType } from "../data/weapon";
 
     let { actor, weapons, conditions }: { actor: CombatActor, weapons: Weapon[], conditions: Condition[] } = $props();
+
+    type FunkyInputEvent = Event & {currentTarget: HTMLSelectElement}
+
+    let onAddWeapon = (e: FunkyInputEvent) => {
+        console.log(e.currentTarget.value)
+        actor.weapons.push(e.currentTarget.value); // when new weapon is chosen, update list
+    };
 
     function increment(thing: string, inc: number) {
         switch (thing) {
@@ -37,16 +45,16 @@
 
 <div class={"h-min bg-neutral-700/50 rounded-md border border-neutral-500 shadow-md p-3 col-span-1" + (actor.downed && " opacity-50")}>
     <div class="flex justify-between">
-        <h1 class="font-bold text-left font-display text-3xl text-white">{actor.name}</h1>
+        <h1 class="font-bold text-left font-display text-3xl text-white select-none">{actor.name}</h1>
         {#if actor.downed}
-            <IconDowned class="text-3xl text-right text-neutral-500 hover:text-neutral-400" onclick={() => actor.downed = !actor.downed} />
+            <IconDowned class="text-3xl text-right text-neutral-500 hover:text-neutral-400 cursor-pointer" onclick={() => actor.downed = !actor.downed} />
         {:else}
-            <IconLife class="text-3xl text-right text-neutral-500 hover:text-neutral-400" onclick={() => actor.downed = !actor.downed} />
+            <IconLife class="text-3xl text-right text-neutral-500 hover:text-neutral-400 cursor-pointer" onclick={() => actor.downed = !actor.downed} />
         {/if}
     </div>
-    <h3 class="-mt-1 uppercase font-bold font-mono text-xs text-neutral-400 mb-4">{actor.desc}</h3>
+    <h3 class="-mt-1 uppercase font-bold font-mono text-xs text-neutral-400 mb-4 select-none">{actor.desc}</h3>
 
-    <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs mb-1">ATTRIBUTES</h3>
+    <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs mb-1 select-none">ATTRIBUTES</h3>
     <div class="grid grid-cols-3 gap-1 mb-4 min-h-[15vh]">
         <div class="bg-red-700 content-center rounded-md overflow-hidden relative">
             <div onclick={increment("health", +1)} class="absolute top-0 w-full bg-red-900 hover:bg-red-800 font-mono text-white overflow-hidden border-b border-red-600 text-center select-none">
@@ -101,7 +109,7 @@
         </div>
     </div>
 
-    <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs mb-1">STATS</h3>
+    <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs mb-1 select-none">STATS</h3>
     <div class="grid grid-cols-4 gap-1 mb-4">
         <div class="bg-sky-700 content-center rounded-md overflow-hidden">
             <div onclick={increment("int", +1)} class="w-full bg-sky-900 font-mono text-white border-b border-sky-600 text-center select-none">+</div>
@@ -142,10 +150,31 @@
     </div>
 
     <div class="grid gap-1 mb-4">
-        <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs">WEAPONS</h3>
+        <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs select-none">WEAPONS</h3>
         {#each weapons as weapon}
             <WeaponDisplay weapon={weapon} />
         {/each}
+        <Popover.Root>
+            <Popover.Trigger>
+                <div class="border border-neutral-600 text-neutral-600 cursor-pointer select-none rounded-md">
+                    +
+                </div>
+            </Popover.Trigger>
+            <Popover.Content class="bg-neutral-800/90 border border-neutral-600">
+                <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
+                    Choose weapon:
+                    <select name="weapon" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" onchange={onAddWeapon}>
+                        {#each Object.entries(WeaponType).filter(([key, value]) => isNaN(Number(key)) || typeof value === 'number') as type}
+                            <optgroup label={type[0]}>
+                                {#each weapons.filter(it => it.type == type[1]) as weapon}
+                                    <option value={weapon.id}>{weapon.name}</option>
+                                {/each}
+                            </optgroup>
+                        {/each}
+                    </select>
+                </label>
+            </Popover.Content>
+        </Popover.Root>
     </div>
 
     <div class="">

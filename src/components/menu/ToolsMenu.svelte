@@ -8,6 +8,7 @@
     import CreateConditionModal from "../flow/CreateConditionModal.svelte";
     import CreateWeaponModal from "../flow/CreateWeaponModal.svelte";
     import UploadModal from "../flow/UploadModal.svelte";
+    import { defaultData } from "../../data/lib";
 
     let saveData = () => {
         var a = document.createElement("a")
@@ -54,8 +55,5 @@
 <CreateConditionModal />
 <UploadModal />
 <ConfirmModal func={() => { 
-    localData.current.actors = [];
-    localData.current.weapons = [];
-    localData.current.conditions = [];
-    localData.current.sequence = [];
+    localData.current = defaultData;
 }} />

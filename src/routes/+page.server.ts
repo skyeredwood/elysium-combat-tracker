@@ -1,5 +1,6 @@
 import type { Actions } from "@sveltejs/kit";
 import type { CombatActor, Condition, Weapon } from "../data/lib";
+import { strikeWeapon } from "../data/weapon";
 
 export const actions = {
 	actor: async ({ request }) => {
@@ -24,7 +25,7 @@ export const actions = {
 				mot: Number.parseInt(data.get("mot")!!.toString())
 			},
 
-			weapons: [ data.get("weapon")!!.toString() ],
+			weapons: [strikeWeapon.id], // Added later
 			conditions: []
 		}
 		return { success: true, type: "actor", data: actor };	

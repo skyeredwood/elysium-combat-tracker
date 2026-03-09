@@ -10,20 +10,20 @@
                     <div class="grid grid-cols-1 gap-2">
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             ID:
-                            <input name="id" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="id" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Name:
-                            <input name="name" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="name" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Description:
-                            <input name="desc" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="desc" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
 
                         <label class="font-mono text-neutral-400 text-sm mt-6 grid grid-cols-2 items-center">
                             Colour:
-                            <select name="colour" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block">
+                            <select required name="colour" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block">
                                 <option value="red" class="text-red-500">Red</option>
                                 <option value="amber" class="text-amber-500">Amber</option>
                                 <option value="yellow" class="text-yellow-500">Yellow</option>
@@ -39,7 +39,7 @@
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Icon:
-                            <select name="icon"class="border-none py-4 rounded-md text-sm bg-neutral-600 inline-block">
+                            <select required name="icon"class="border-none py-4 rounded-md text-sm bg-neutral-600 inline-block">
                                 <option value="droplet">Droplet</option>
                                 <option value="northstar">North Star</option>
                                 <option value="moon">Moon</option>

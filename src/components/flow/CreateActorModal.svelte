@@ -15,62 +15,50 @@
                     <div class="grid grid-cols-1 gap-2">
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Name:
-                            <input name="name" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="name" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Description:
-                            <input name="desc" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="desc" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
 
                         <label class="font-mono text-neutral-400 text-sm mt-6 grid grid-cols-2 items-center">
                             Health:
-                            <input name="hp" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="hp" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Morale:
-                            <input name="morale" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="morale" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Reflex:
-                            <input name="reflex" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="reflex" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Action Points:
-                            <input name="ap" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="ap" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
 
                         <div class="grid grid-cols-4 gap-2">
                             <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center mt-6">
                                 INT:
-                                <input name="int" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                                <input required name="int" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                             </label>
                             <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center mt-6">
                                 PSY:
-                                <input name="psy" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                                <input required name="psy" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                             </label>
                             <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center mt-6">
                                 FYS:
-                                <input name="fys" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                                <input required name="fys" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                             </label>
                             <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center mt-6">
                                 MOT:
-                                <input name="mot" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                                <input required name="mot" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                             </label>
                         </div>
 
-                        
-                        <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center mt-6">
-                            Weapon:
-                            <select name="weapon" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block">
-                                {#each Object.entries(WeaponType).filter(([key, value]) => isNaN(Number(key)) || typeof value === 'number') as type}
-                                    <optgroup label={type[0]}>
-                                        {#each localData.current.weapons.filter(it => it.type == type[1]) as weapon}
-                                            <option value={weapon.id}>{weapon.name}</option>
-                                        {/each}
-                                    </optgroup>
-                                {/each}
-                            </select>
-                        </label>
+                    <p class="font-mono text-neutral-500 text-xs mt-1">(weapons and conditions can be added later)</p>
                     </div>
                 </div>
                 <div class="bg-neutral-700/25 px-4 py-3 flex flex-row-reverse sm:px-6 items-center">

@@ -14,15 +14,15 @@
                     <div class="grid grid-cols-1 gap-2">
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             ID:
-                            <input name="id" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="id" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Name:
-                            <input name="name" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="name" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Type:
-                            <select name="type" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block">
+                            <select required name="type" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block">
                                 {#each Object.entries(WeaponType).filter(it => typeof it[1] !== "number") as type}
                                     <option value={type[0]}>{type[1]}</option>
                                 {/each}
@@ -31,15 +31,15 @@
 
                         <label class="font-mono text-neutral-400 text-sm mt-6 grid grid-cols-2 items-center">
                             AP Cost:
-                            <input name="ap" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="ap" type="number" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             DMG:
-                            <input name="dmg" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="dmg" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Requirements:
-                            <input name="req" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                            <input required name="req" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
                         </label>
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Notes:

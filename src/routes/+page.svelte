@@ -1,13 +1,8 @@
 <script lang="ts">
     import ActorDisplay from '../components/ActorDisplay.svelte';
     import EmptyDisplay from '../components/EmptyDisplay.svelte';
-    import NavMenu from '../components/menu/NavMenu.svelte';
     import { localData } from '$lib/localstorage';
-    import CreateActorModal from '../components/flow/CreateActorModal.svelte';
-    import CreateWeaponModal from '../components/flow/CreateWeaponModal.svelte';
     import type { CombatActor, Condition, Weapon } from '../data/lib.js';
-    import ConfirmModal from '../components/flow/ConfirmModal.svelte';
-    import UploadModal from '../components/flow/UploadModal.svelte';
     import type DataFile from '../data/lib.js';
     import ToolsMenu from '../components/menu/ToolsMenu.svelte';
     import SequenceMenu from '../components/menu/QuickMenu.svelte';
@@ -37,7 +32,7 @@
     <div class="grid grid-cols-5 gap-2">
         {#each localData.current.actors as actor}
             <ActorDisplay actor={actor} 
-                weapons={localData.current.weapons.filter(it => actor.weapons.includes(it.id))}
+                weapons={localData.current.weapons}
                 conditions={localData.current.conditions} />
         {/each} 
         <EmptyDisplay />

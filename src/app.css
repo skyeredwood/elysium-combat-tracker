@@ -4,6 +4,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@source inline("opacity-25");
+@source inline("opacity-75");
+
 @theme {
   --font-display: "Dobra", sans-serif; 
   --font-body: "SinaNova", serif;
