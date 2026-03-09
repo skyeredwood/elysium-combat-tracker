@@ -4,6 +4,9 @@
 
     import * as Popover from "$lib/components/ui/popover/index";
 
+    import IconLife from "virtual:icons/tabler/health-recognition";
+    import IconDowned from "virtual:icons/tabler/skull";
+
     import IconReflex from "virtual:icons/tabler/arrow-big-right-lines-filled";
     import IconAP from "virtual:icons/tabler/brand-react";
     import ConditionDisplayTag from "./condition/ConditionDisplayTag.svelte";
@@ -32,8 +35,15 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 
-<div class={"h-min bg-neutral-700/50 rounded-md border border-neutral-500 shadow-md p-3 col-span-1" + (actor.downed && " opacity-40")}>
-    <h1 class="font-bold font-display text-3xl text-white">{actor.name}</h1>
+<div class={"h-min bg-neutral-700/50 rounded-md border border-neutral-500 shadow-md p-3 col-span-1" + (actor.downed && " opacity-50")}>
+    <div class="flex justify-between">
+        <h1 class="font-bold text-left font-display text-3xl text-white">{actor.name}</h1>
+        {#if actor.downed}
+            <IconDowned class="text-3xl text-right text-neutral-500 hover:text-neutral-400" onclick={() => actor.downed = !actor.downed} />
+        {:else}
+            <IconLife class="text-3xl text-right text-neutral-500 hover:text-neutral-400" onclick={() => actor.downed = !actor.downed} />
+        {/if}
+    </div>
     <h3 class="-mt-1 uppercase font-bold font-mono text-xs text-neutral-400 mb-4">{actor.desc}</h3>
 
     <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs mb-1">ATTRIBUTES</h3>
