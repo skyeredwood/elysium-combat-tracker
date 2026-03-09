@@ -1,5 +1,6 @@
 <script>
     import { localData } from "$lib/localstorage";
+    import { WeaponType } from "../../data/weapon";
 
 </script>
 <el-dialog>
@@ -61,8 +62,12 @@
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center mt-6">
                             Weapon:
                             <select name="weapon" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block">
-                                {#each localData.current.weapons as weapon}
-                                    <option value={weapon.id}>{weapon.name}</option>
+                                {#each Object.entries(WeaponType).filter(([key, value]) => isNaN(Number(key)) || typeof value === 'number') as type}
+                                    <optgroup label={type[0]}>
+                                        {#each localData.current.weapons.filter(it => it.type == type[1]) as weapon}
+                                            <option value={weapon.id}>{weapon.name}</option>
+                                        {/each}
+                                    </optgroup>
                                 {/each}
                             </select>
                         </label>

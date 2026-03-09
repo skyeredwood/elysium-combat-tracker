@@ -33,6 +33,7 @@ export const actions = {
 		let data = await request.formData();
 		let weapon: Weapon = {
 			id: data.get("id")!!.toString(),
+			type: Number.parseInt(data.get("type")!!.toString()),
 			name: data.get("name")!!.toString(),
 
 			actionPointCost: Number.parseInt(data.get("ap")!!.toString()),

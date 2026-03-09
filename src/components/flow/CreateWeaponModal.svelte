@@ -1,3 +1,7 @@
+<script>
+    import { WeaponType } from "../../data/weapon";
+
+</script>
 <el-dialog>
     <dialog id="create-weapon" aria-labelledby="dialog-title" class="fixed inset-0 size-auto max-h-none max-w-none overflow-y-auto bg-transparent backdrop:bg-transparent">
         <el-dialog-backdrop class="fixed inset-0 bg-neutral-900/50 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"></el-dialog-backdrop>
@@ -15,6 +19,14 @@
                         <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
                             Name:
                             <input name="name" type="text" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block" />
+                        </label>
+                        <label class="font-mono text-neutral-400 text-sm grid grid-cols-2 items-center">
+                            Type:
+                            <select name="type" class="border-none py-1 rounded-md text-sm bg-neutral-600 inline-block">
+                                {#each Object.entries(WeaponType).filter(it => typeof it[1] !== "number") as type}
+                                    <option value={type[0]}>{type[1]}</option>
+                                {/each}
+                            </select>
                         </label>
 
                         <label class="font-mono text-neutral-400 text-sm mt-6 grid grid-cols-2 items-center">

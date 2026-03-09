@@ -10,6 +10,7 @@
     import UploadModal from '../components/flow/UploadModal.svelte';
     import type DataFile from '../data/lib.js';
     import ToolsMenu from '../components/menu/ToolsMenu.svelte';
+    import SequenceMenu from '../components/menu/SequenceMenu.svelte';
 
     const { form } = $props();
     
@@ -41,5 +42,6 @@
         {/each} 
         <EmptyDisplay />
     </div>
+    <SequenceMenu sequence={localData.current.sequence} />
     <ToolsMenu />
 </main>

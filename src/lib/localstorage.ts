@@ -3,6 +3,6 @@ import { PersistentState } from '@friendofsvelte/state';
 
 export const localData = new PersistentState<DataFile>(
     "data",
-    { actors: [], weapons: [], conditions: [] },
+    { actors: [], weapons: [], conditions: [], sequence: [] },
     "localStorage"
 )

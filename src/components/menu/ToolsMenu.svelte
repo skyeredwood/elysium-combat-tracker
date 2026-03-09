@@ -20,7 +20,7 @@
 </script>
 
 <Popover.Root>
-    <Popover.Trigger class="group absolute hover:mb-0.5 hover:mr-0.5 transition-all right-5 bottom-5 rounded-full bg-amber-500 hover:bg-amber-400 border border-amber-400 hover:border-amber-200 shadow-md p-3">
+    <Popover.Trigger class="group fixed hover:mb-0.5 hover:mr-0.5 transition-all right-5 bottom-5 rounded-full bg-amber-500 hover:bg-amber-400 border border-amber-400 hover:border-amber-200 shadow-md p-3">
         <IconTools class="text-amber-200 group-hover:text-amber-700/50 transition-all text-2xl" />
     </Popover.Trigger>
     <Popover.Content class="bg-amber-700 border-amber-500 shadow-md mr-6 mb-2">
@@ -56,4 +56,6 @@
 <ConfirmModal func={() => { 
     localData.current.actors = [];
     localData.current.weapons = [];
+    localData.current.conditions = [];
+    localData.current.sequence = [];
 }} />
