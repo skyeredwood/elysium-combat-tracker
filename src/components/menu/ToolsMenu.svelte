@@ -21,12 +21,12 @@
 </script>
 
 <Popover.Root>
-    <Popover.Trigger class="group fixed hover:mb-0.5 hover:mr-0.5 transition-all right-5 bottom-5 rounded-full bg-amber-500 hover:bg-amber-400 border border-amber-400 hover:border-amber-200 shadow-md p-3">
+    <Popover.Trigger class="group fixed hover:mb-0.5 transition-all right-5 bottom-5 rounded-full bg-amber-500 hover:bg-amber-400 border border-amber-400 hover:border-amber-200 shadow-md p-3">
         <IconTools class="text-amber-200 group-hover:text-amber-700/50 transition-all text-2xl" />
     </Popover.Trigger>
     <Popover.Content class="bg-amber-700 border-amber-500 shadow-md mr-6 mb-2">
         <h1 class="font-display font-bold text-xl text-white">ELYSIUM COMBAT TRACKER</h1>
-        <div class="grid grid-cols-1 text-amber-100 font-body">
+        <div class="grid grid-cols-1 gap-0.5 text-amber-100 font-body">
             <button type="button" command="show-modal" commandfor="create-actor" class="bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
                 Create actor
             </button>
@@ -46,7 +46,8 @@
                 Clear data
             </button>
         </div>
-        <span class="font-mono text-xs/3 text-amber-200">A SvelteKit app by <a href="https://twitter.com/skylarexe" target="_blank" class="text-amber-100 underline">skye_exe</a></span>
+        <span class="font-mono text-xs/3 text-amber-200">v0.1</span>
+        <span class="font-mono text-xs/3 text-amber-200/50">- a SvelteKit app by <a href="https://twitter.com/skylarexe" target="_blank" class="text-amber-100 underline">skye_exe</a></span>
     </Popover.Content>
 </Popover.Root>
 

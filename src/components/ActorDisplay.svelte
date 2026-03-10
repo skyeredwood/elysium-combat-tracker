@@ -151,12 +151,12 @@
 
     <div class="grid gap-1 mb-4">
         <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs select-none">WEAPONS</h3>
-        {#each weapons as weapon}
-            <WeaponDisplay weapon={weapon} />
+        {#each actor.weapons as weapon}
+            <WeaponDisplay weapon={weapons.filter(it => it.id == weapon)[0]} />
         {/each}
         <Popover.Root>
             <Popover.Trigger>
-                <div class="border border-neutral-600 text-neutral-600 cursor-pointer select-none rounded-md">
+                <div class="border-[1.5px] hover:border-neutral-400 hover:text-neutral-400 transition-colors border-neutral-500 text-neutral-500 cursor-pointer select-none font-mono font-bold rounded-md">
                     +
                 </div>
             </Popover.Trigger>
