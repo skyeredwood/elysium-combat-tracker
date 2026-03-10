@@ -46,7 +46,7 @@
                 Clear data
             </button>
         </div>
-        <span class="font-mono text-xs/3 text-amber-200">v0.1</span>
+        <span class="font-mono text-xs/3 text-amber-200">v0.2</span>
         <span class="font-mono text-xs/3 text-amber-200/50">- a SvelteKit app by <a href="https://twitter.com/skylarexe" target="_blank" class="text-amber-100 underline">skye_exe</a></span>
     </Popover.Content>
 </Popover.Root>
