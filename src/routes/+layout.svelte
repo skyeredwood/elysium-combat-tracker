@@ -8,6 +8,7 @@
 </script>
 
 <svelte:head>
+	<title>Elysium Combat Tracker</title>
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
