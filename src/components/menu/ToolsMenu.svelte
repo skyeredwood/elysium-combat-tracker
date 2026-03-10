@@ -42,7 +42,7 @@
             <button type="button" command="show-modal" commandfor="upload" class="bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
                 Load JSON file
             </button>
-            <button type="button" command="show-modal" commandfor="confirm" class="bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
+            <button type="button" command="show-modal" commandfor="clear-data" class="bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
                 Clear data
             </button>
         </div>
@@ -55,6 +55,6 @@
 <CreateWeaponModal />
 <CreateConditionModal />
 <UploadModal />
-<ConfirmModal func={() => { 
+<ConfirmModal id="clear-data" func={() => { 
     localData.current = defaultData;
 }} />

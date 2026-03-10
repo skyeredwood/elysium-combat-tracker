@@ -6,12 +6,15 @@
 
     import IconLife from "virtual:icons/tabler/health-recognition";
     import IconDowned from "virtual:icons/tabler/skull";
-
+    import IconDelete from "virtual:icons/tabler/trash-x-filled";
     import IconReflex from "virtual:icons/tabler/arrow-big-right-lines-filled";
     import IconAP from "virtual:icons/tabler/brand-react";
+
     import ConditionDisplayTag from "./condition/ConditionDisplayTag.svelte";
     import ConditionTag from "./condition/ConditionTag.svelte";
     import { WeaponType } from "../data/weapon";
+    import ConfirmModal from "./flow/ConfirmModal.svelte";
+    import { localData } from "$lib/localstorage";
 
     let { actor, weapons, conditions }: { actor: CombatActor, weapons: Weapon[], conditions: Condition[] } = $props();
 
@@ -43,7 +46,7 @@
 <!-- svelte-ignore a11y_click_events_have_key_events -->
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 
-<div class={"h-min bg-neutral-700/50 rounded-md border border-neutral-500 shadow-md p-3 col-span-1" + (actor.downed && " opacity-50")}>
+<div class={"relative group h-min bg-neutral-700/50 rounded-md border border-neutral-500 shadow-md p-3 col-span-1" + (actor.downed && " opacity-50")}>
     <div class="flex justify-between">
         <h1 class="font-bold text-left font-display text-3xl text-white select-none">{actor.name}</h1>
         {#if actor.downed}
@@ -52,6 +55,11 @@
             <IconLife class="text-3xl text-right text-neutral-500 hover:text-neutral-400 cursor-pointer" onclick={() => actor.downed = !actor.downed} />
         {/if}
     </div>
+
+    <button type="button" command="show-modal"  commandfor={"del-actor-" + actor.name}  class="cursor-pointer absolute -top-2 -right-2 text-white hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all p-1 text-lg bg-neutral-700 border border-neutral-500 rounded-full">
+        <IconDelete />
+    </button>
+
     <h3 class="-mt-1 uppercase font-bold font-mono text-xs text-neutral-400 mb-4 select-none">{actor.desc}</h3>
 
     <h3 class="uppercase font-mono font-bold text-neutral-400 text-xs mb-1 select-none">ATTRIBUTES</h3>
@@ -185,4 +193,9 @@
                 value={actor.notes} 
                 />
     </div>
+
+    <ConfirmModal id={"del-actor-" + actor.name} func={() => { 
+        let index = localData.current.actors.indexOf(actor)
+        localData.current.actors.splice(index, 1)
+    }} /> 
 </div>

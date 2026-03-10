@@ -9,7 +9,7 @@ export default interface DataFile {
     sequence: { id: string, name: string, roll: number }[]
 }
 
-export const defaultData = { actors: [], weapons: [strikeWeapon], conditions: [], sequence: [] }
+export const defaultData: DataFile = { actors: [], weapons: [strikeWeapon], conditions: [], sequence: [] }
 
 export interface CombatActor {
     name: string
