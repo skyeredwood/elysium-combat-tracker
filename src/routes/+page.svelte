@@ -16,9 +16,19 @@
                 localData.current.actors.push(form.data!! as CombatActor)
                 break;
             case "weapon":
+                let filtered = localData.current.weapons.filter(it => it.id == (form?.data as Weapon).id)
+                if (filtered.length > 0) {
+                    let objIdx = localData.current.weapons.indexOf(filtered[0])
+                    localData.current.weapons.splice(objIdx, 1) // I hate this
+                } 
                 localData.current.weapons.push(form.data!! as Weapon)
                 break;
             case "condition":
+                let filteredC = localData.current.conditions.filter(it => it.id == (form?.data as Condition).id)
+                if (filteredC.length > 0) {
+                    let objIdx = localData.current.conditions.indexOf(filteredC[0])
+                    localData.current.conditions.splice(objIdx, 1) // I hate this
+                } 
                 localData.current.conditions.push(form.data!! as Condition)
                 break;
             case "upload":

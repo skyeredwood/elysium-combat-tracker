@@ -7,20 +7,21 @@
 
     import IconUnknown from "virtual:icons/tabler/heart-question";    
 
-    let { icon }: { icon: string } = $props();
-
+    let { icon, ...rest }: { icon: string, [key: string]: string } = $props();
 </script>
 
-{#if icon == "droplet"}
-    <IconRainDrop />
-{:else if icon == "northstar"}
-    <IconNorthStar />
-{:else if icon == "moon"}
-    <IconMoon />
-{:else if icon == "target"}
-    <IconTarget />
-{:else if icon == "eye"}
-    <IconEye />
-{:else}
-    <IconUnknown />
-{/if}
+<div {...rest}>
+    {#if icon == "droplet"}
+        <IconRainDrop />
+    {:else if icon == "northstar"}
+        <IconNorthStar />
+    {:else if icon == "moon"}
+        <IconMoon />
+    {:else if icon == "target"}
+        <IconTarget />
+    {:else if icon == "eye"}
+        <IconEye />
+    {:else}
+        <IconUnknown />
+    {/if}
+</div>

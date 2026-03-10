@@ -56,7 +56,7 @@
         {/if}
     </div>
 
-    <button type="button" command="show-modal"  commandfor={"del-actor-" + actor.name}  class="cursor-pointer absolute -top-2 -right-2 text-white hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all p-1 text-lg bg-neutral-700 border border-neutral-500 rounded-full">
+    <button type="button" command="show-modal"  commandfor={"del-actor-" + actor.name}  class="cursor-pointer absolute -top-2 -right-2 text-white hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all p-1 text-lg bg-neutral-700 border border-neutral-500 rounded-full shadow-md">
         <IconDelete />
     </button>
 

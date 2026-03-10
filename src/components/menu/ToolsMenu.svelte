@@ -36,7 +36,16 @@
             <button type="button" command="show-modal" commandfor="create-condition" class="bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
                 Create condition
             </button>
-            <button onclick={saveData} class="bg-amber-800 border-l border-amber-500 text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
+
+
+            <a href="/weapons" class="mt-2 bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
+                View all weapons
+            </a>
+            <a href="/conditions" class="bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
+                View all conditions
+            </a>
+
+            <button onclick={saveData} class="mt-2 bg-amber-800 border-l border-amber-500 text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
                 Save JSON file
             </button>
             <button type="button" command="show-modal" commandfor="upload" class="bg-amber-800 border-l border-amber-500  text-sm text-left px-2 cursor-pointer hover:bg-amber-700 hover:text-white">
