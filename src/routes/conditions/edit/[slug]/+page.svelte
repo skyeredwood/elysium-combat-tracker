@@ -52,6 +52,7 @@
                             <option selected={condition.icon == "moon"} value="moon">Moon</option>
                             <option selected={condition.icon == "target"} value="target">Target</option>
                             <option selected={condition.icon == "eye"} value="eye">Eye</option>
+                            <option selected={condition.icon == "hand"} value="hand">Hand</option>
                         </select>
                     </label>
                 </div>

@@ -45,6 +45,7 @@
                                 <option value="moon">Moon</option>
                                 <option value="target">Target</option>
                                 <option value="eye">Eye</option>
+                                <option value="hand">Hand</option>
                             </select>
                         </label>
                     </div>
