@@ -4,7 +4,7 @@
     import IconMoon from "virtual:icons/tabler/moon-stars";
     import IconTarget from "virtual:icons/tabler/target-arrow";
     import IconEye from "virtual:icons/tabler/eye-dotted";
-    import IconHand from "virtual:icons/tabler/icon-hand";
+    import IconHand from "virtual:icons/tabler/hand-grab";
 
     import IconUnknown from "virtual:icons/tabler/heart-question";    
 

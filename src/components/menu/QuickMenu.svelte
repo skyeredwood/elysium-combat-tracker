@@ -2,7 +2,9 @@
     import { uuidv4 } from "$lib/utils";
 
     import * as Accordion from "$lib/components/ui/accordion/index";
+    import * as Table from "$lib/components/ui/table/index";
     import { Checkbox } from "$lib/components/ui/checkbox/index";
+
     import D6 from "./D6.svelte";
 
     let { sequence }: { sequence: { id: string, name: string, roll: number }[] } = $props();
@@ -64,9 +66,10 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 
 <div class="fixed top-0.5 right-0.5 w-[20vw] max-h-[60vh] overflow-scroll bg-neutral-950/80 border border-neutral-800 rounded-md px-4">
+    <!-- COMBAT SEQ -->
     <Accordion.Root type="single">
         <Accordion.Item value="combat-sequence">
-            <Accordion.Trigger>
+            <Accordion.Trigger class="cursor-pointer">
                 <h3 class="font-display font-bold text-neutral-500 text-center">COMBAT SEQUENCE</h3>
             </Accordion.Trigger>
             <Accordion.Content>
@@ -81,9 +84,79 @@
             </Accordion.Content>
         </Accordion.Item>
     </Accordion.Root>
+    <!-- ACTION SHEET -->
+    <Accordion.Root type="single" class="-mt-4">
+        <Accordion.Item value="action-sheet">
+            <Accordion.Trigger class="cursor-pointer">
+                <h3 class="font-display font-bold text-neutral-500 text-center">ACTION SHEET</h3>
+            </Accordion.Trigger>
+            <Accordion.Content>
+                <Table.Root class="text-white text-xs text-wrap">
+                    <Table.Body>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Move</Table.Cell>
+                            <Table.Cell>2AP</Table.Cell>
+                            <Table.Cell>Move up to 10ft</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Sprint</Table.Cell>
+                            <Table.Cell>3AP</Table.Cell>
+                            <Table.Cell>Move up to 50ft in a straight line</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Draw/stow Weapon</Table.Cell>
+                            <Table.Cell>1AP</Table.Cell>
+                            <Table.Cell>Equip or replace a stowed or nearby weapon</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Attack</Table.Cell>
+                            <Table.Cell>Depends</Table.Cell>
+                            <Table.Cell>See individual attack</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Reload</Table.Cell>
+                            <Table.Cell>2AP</Table.Cell>
+                            <Table.Cell>Reload a weapon with given ammo</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Brace</Table.Cell>
+                            <Table.Cell>2AP</Table.Cell>
+                            <Table.Cell>+2 to Reflex on incoming attacks</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Hide</Table.Cell>
+                            <Table.Cell>1AP</Table.Cell>
+                            <Table.Cell>DC6 Savoir Faire check to hide</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Use Item</Table.Cell>
+                            <Table.Cell>1AP</Table.Cell>
+                            <Table.Cell>Consume or use stowed or nearby item</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Escape</Table.Cell>
+                            <Table.Cell>2AP</Table.Cell>
+                            <Table.Cell>Escape being Grappled by an enemy</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800">
+                            <Table.Cell class="font-medium">Ready</Table.Cell>
+                            <Table.Cell>+1AP</Table.Cell>
+                            <Table.Cell>Ready a specific action</Table.Cell>
+                        </Table.Row>
+                        <Table.Row class="select-none transition-colors hover:bg-neutral-800 italic">
+                            <Table.Cell class="font-medium">Recycle</Table.Cell>
+                            <Table.Cell>N/A</Table.Cell>
+                            <Table.Cell>Recycle all remaining AP for next turn</Table.Cell>
+                        </Table.Row>
+                    </Table.Body>
+                </Table.Root>
+            </Accordion.Content>
+        </Accordion.Item>
+    </Accordion.Root>
+    <!-- DICE ROLLER -->
     <Accordion.Root type="single" class="-mt-4">
         <Accordion.Item value="dice-roller">
-            <Accordion.Trigger>
+            <Accordion.Trigger class="cursor-pointer">
                 <h3 class="font-display font-bold text-neutral-500 text-center">DICE ROLLER</h3>
             </Accordion.Trigger>
             <Accordion.Content>
